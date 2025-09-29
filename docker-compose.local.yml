@@ -1,0 +1,44 @@
+services:
+
+  nginx:
+    ports:
+      - ${NGINX_EXTERNAL_PORT:-80}:${NGINX_PORT}
+  n8n:
+    ports:
+      - ${N8N_EXTERNAL_PORT:-5678}:${N8N_PORT}
+
+  stirling-pdf:
+    ports:
+     - ${STIRLING_PDF_EXTERNAL_PORT:-8008}:${STIRLING_PDF_PORT}
+
+  langfuse-ui:
+    ports:
+     - ${LANGFUSE_EXTERNAL_PORT:-3001}:${LANGFUSE_PORT}
+
+  redisinsight:
+    ports:
+      - ${REDISINSIGHT_EXTERNL_PORT:-5540}:${REDISINSIGHT_PORT}
+
+  redis:
+    ports:
+      - ${REDIS_EXTERNAL_PORT:-6379}:${REDIS_PORT}
+
+  qdrant:
+    ports:
+      - ${QDRANT_EXTERNAL_PORT:-6333}:${QDRANT_PORT}
+
+  clickhouse:
+    ports:
+      - ${CLICKHOUSE_EXTERNAL_PORT:-8123}:${CLICKHOUSE_HTTP_PORT}
+
+  pgadmin:
+    ports:
+      - ${PGADMIN_EXTERNAL_PORT:-8002}:${PGADMIN_PORT}
+
+  postgres:
+    ports:
+      - ${POSTGRES_EXTERNAL_PORT:-5432}:${POSTGRES_PORT}
+
+  minio:
+    ports:
+      - ${MINIO_EXTERNAL_PORT:-9000}:${MINIO_API_PORT}

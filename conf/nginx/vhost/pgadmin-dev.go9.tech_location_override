@@ -1,0 +1,6 @@
+location / {
+  proxy_set_header Host $host;
+  proxy_pass http://pgadmin.internal:80;
+  set $upstream_keepalive false;
+  proxy_redirect off;
+}
