@@ -165,16 +165,6 @@ services:
   langfuse-ui:
     image: langfuse/langfuse:latest
     hostname: ${LANGFUSE_HOST}
-    volumes:
-      # Custom logos mapping
-      - ./conf/langfuse/image/icon.svg:/app/web/public/icon.svg
-      - ./conf/langfuse/image/icon256.png:/app/web/public/icon256.png
-      - ./conf/langfuse/image/icon1024.png:/app/web/public/icon1024.png
-      - ./conf/langfuse/image/favicon.ico:/app/web/public/favicon.ico
-      - ./conf/langfuse/image/favicon-16x16.png:/app/web/public/favicon-16x16.png
-      - ./conf/langfuse/image/favicon-32x32.png:/app/web/public/favicon-32x32.png
-      - ./conf/langfuse/image/android-chrome-192x192.png:/app/web/public/android-chrome-192x192.png
-      - ./conf/langfuse/image/apple-touch-icon.png:/app/web/public/apple-touch-icon.png
     environment:
       <<: *langfuse-worker-env
       VIRTUAL_HOST: ${LANGFUSE_VHOST}
@@ -203,9 +193,7 @@ services:
       LANGS: pt_BR,en_US
     volumes:
       - ./conf/stirling-pdf:/configs
-      - ./data/stirling-pdf:/usr/share/tessdata #Required for extra OCR languages
-#      - ./customFiles:/customFiles/
-#      - ./logs:/logs/
+      - ./data/stirling-pdf:/usr/share/tessdata
 
   redisinsight:
     image: redis/redisinsight:latest
